@@ -11,5 +11,18 @@
     "auth": {
         "login": "Iniciar Sesión",
         "signup": "Registrarse"
+    },
+    "blog": {
+        "title": "Nuestro Blog",
+        "subtitle": "Descubre artículos perspicaces, contenido estimulante e historias atractivas de nuestra comunidad de escritores.",
+        "searchPlaceholder": "Buscar artículos, autores o temas...",
+        "categoryAll": "Todos",
+        "sortLatest": "Más Recientes",
+        "sortOldest": "Más Antiguos",
+        "sortAlphabetical": "Alfabético",
+        "resultsCount": "Mostrando {count} de {total} artículos",
+        "noResults": "No se encontraron artículos",
+        "noResultsMessage": "Intenta ajustar tus términos de búsqueda o filtros para encontrar lo que buscas.",
+        "loadMore": "Cargar Más Artículos"
     }
 }

@@ -11,5 +11,18 @@
     "auth": {
         "login": "Login",
         "signup": "Sign Up"
+    },
+    "blog": {
+        "title": "Our Blog",
+        "subtitle": "Discover insightful articles, thought-provoking content, and engaging stories from our community of writers.",
+        "searchPlaceholder": "Search articles, authors, or topics...",
+        "categoryAll": "All",
+        "sortLatest": "Latest First",
+        "sortOldest": "Oldest First",
+        "sortAlphabetical": "Alphabetical",
+        "resultsCount": "Showing {count} of {total} articles",
+        "noResults": "No articles found",
+        "noResultsMessage": "Try adjusting your search terms or filters to find what you're looking for.",
+        "loadMore": "Load More Articles"
     }
 }
