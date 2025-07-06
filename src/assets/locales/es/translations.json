@@ -1,5 +1,15 @@
 {
     "home": {
-        "greeting": "¡Hola, Mundo!"
+        "greeting": "¡Hola, mundo!"
+    },
+    "nav": {
+        "home": "Inicio",
+        "blog": "Blog",
+        "about": "Acerca de",
+        "contact": "Contacto"
+    },
+    "auth": {
+        "login": "Iniciar Sesión",
+        "signup": "Registrarse"
     }
 }

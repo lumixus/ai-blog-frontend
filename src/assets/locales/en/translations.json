@@ -1,5 +1,15 @@
 {
     "home": {
         "greeting": "Hello, world!"
+    },
+    "nav": {
+        "home": "Home",
+        "blog": "Blog",
+        "about": "About",
+        "contact": "Contact"
+    },
+    "auth": {
+        "login": "Login",
+        "signup": "Sign Up"
     }
 }
