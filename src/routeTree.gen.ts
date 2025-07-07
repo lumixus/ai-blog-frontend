@@ -11,10 +11,17 @@
 // Import Routes
 
 import { Route as rootRoute } from './routes/__root'
+import { Route as BlogDetailImport } from './routes/blog-detail'
 import { Route as BlogImport } from './routes/blog'
 import { Route as IndexImport } from './routes/index'
 
 // Create/Update Routes
+
+const BlogDetailRoute = BlogDetailImport.update({
+  id: '/blog-detail',
+  path: '/blog-detail',
+  getParentRoute: () => rootRoute,
+} as any)
 
 const BlogRoute = BlogImport.update({
   id: '/blog',
@@ -46,6 +53,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof BlogImport
       parentRoute: typeof rootRoute
     }
+    '/blog-detail': {
+      id: '/blog-detail'
+      path: '/blog-detail'
+      fullPath: '/blog-detail'
+      preLoaderRoute: typeof BlogDetailImport
+      parentRoute: typeof rootRoute
+    }
   }
 }
 
@@ -54,36 +68,41 @@ declare module '@tanstack/react-router' {
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/blog': typeof BlogRoute
+  '/blog-detail': typeof BlogDetailRoute
 }
 
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/blog': typeof BlogRoute
+  '/blog-detail': typeof BlogDetailRoute
 }
 
 export interface FileRoutesById {
   __root__: typeof rootRoute
   '/': typeof IndexRoute
   '/blog': typeof BlogRoute
+  '/blog-detail': typeof BlogDetailRoute
 }
 
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/blog'
+  fullPaths: '/' | '/blog' | '/blog-detail'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/blog'
-  id: '__root__' | '/' | '/blog'
+  to: '/' | '/blog' | '/blog-detail'
+  id: '__root__' | '/' | '/blog' | '/blog-detail'
   fileRoutesById: FileRoutesById
 }
 
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   BlogRoute: typeof BlogRoute
+  BlogDetailRoute: typeof BlogDetailRoute
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   BlogRoute: BlogRoute,
+  BlogDetailRoute: BlogDetailRoute,
 }
 
 export const routeTree = rootRoute
@@ -97,7 +116,8 @@ export const routeTree = rootRoute
       "filePath": "__root.ts",
       "children": [
         "/",
-        "/blog"
+        "/blog",
+        "/blog-detail"
       ]
     },
     "/": {
@@ -105,6 +125,9 @@ export const routeTree = rootRoute
     },
     "/blog": {
       "filePath": "blog.ts"
+    },
+    "/blog-detail": {
+      "filePath": "blog-detail.ts"
     }
   }
 }
