@@ -1,34 +1,24 @@
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
-import { useNavigate, useSearch } from "@tanstack/react-router";
 import { Header } from "../components/layout/Header";
 import { Footer } from "../components/layout/Footer";
 import { NewsletterSection } from "../components/ui/NewsletterSection";
 import { LoginModal } from "../components/ui/LoginModal";
 import { SignupModal } from "../components/ui/SignupModal";
+import { useParams } from "@tanstack/react-router";
+import { mockBlogPosts } from "../content/mockBlogPosts";
 
 // Mock data for blog posts (copy from Blog.tsx)
-const mockBlogPosts = [
-  {
-    id: "1",
-    title: "The Future of Artificial Intelligence in Everyday Life",
-    excerpt: "Explore how AI is transforming our daily routines and what we can expect in the coming years as technology continues to evolve at an unprecedented pace.",
-    author: "Sarah Johnson",
-    date: "Dec 15, 2024",
-    category: "Technology",
-    readTime: "5 min read",
-    imageUrl: "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
-    content: `Artificial Intelligence (AI) is rapidly becoming an integral part of our daily lives. From smart assistants to personalized recommendations, AI is transforming the way we live, work, and interact with technology. In this article, we explore the current and future impact of AI in everyday life...`
-  },
-  // ... (other posts, add content field for demo)
-];
 
 export const BlogDetail = () => {
   const { t } = useTranslation();
   const [isLoginModalOpen, setIsLoginModalOpen] = useState(false);
   const [isSignupModalOpen, setIsSignupModalOpen] = useState(false);
+
+  const params = useParams({from: '/blog-detail/$blogId'})
+
   // For demo, just pick the first post
-  const post = mockBlogPosts[0];
+  const post = mockBlogPosts[Number(params.blogId) - 1];
 
   const handleLoginClick = () => setIsLoginModalOpen(true);
   const handleSignupClick = () => setIsSignupModalOpen(true);

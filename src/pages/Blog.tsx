@@ -6,100 +6,7 @@ import { Footer } from "../components/layout/Footer";
 import { BlogCard } from "../components/ui/BlogCard";
 import { LoginModal } from "../components/ui/LoginModal";
 import { SignupModal } from "../components/ui/SignupModal";
-
-// Mock data for blog posts
-const mockBlogPosts = [
-	{
-		id: "1",
-		title: "The Future of Artificial Intelligence in Everyday Life",
-		excerpt: "Explore how AI is transforming our daily routines and what we can expect in the coming years as technology continues to evolve at an unprecedented pace.",
-		author: "Sarah Johnson",
-		date: "Dec 15, 2024",
-		category: "Technology",
-		readTime: "5 min read",
-		imageUrl: "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
-	},
-	{
-		id: "2",
-		title: "Sustainable Living: Small Changes, Big Impact",
-		excerpt: "Discover practical ways to reduce your environmental footprint and live a more sustainable lifestyle without completely changing your routine.",
-		author: "Michael Chen",
-		date: "Dec 12, 2024",
-		category: "Lifestyle",
-		readTime: "4 min read",
-		imageUrl: "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2071&q=80"
-	},
-	{
-		id: "3",
-		title: "The Art of Mindful Productivity",
-		excerpt: "Learn how to be more productive while maintaining your mental well-being through mindfulness techniques and intentional work habits.",
-		author: "Emma Davis",
-		date: "Dec 10, 2024",
-		category: "Productivity",
-		readTime: "6 min read",
-		imageUrl: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
-	},
-	{
-		id: "4",
-		title: "Digital Nomad Lifestyle: Pros and Cons",
-		excerpt: "Is the digital nomad lifestyle right for you? We explore the benefits and challenges of working remotely while traveling the world.",
-		author: "Alex Rodriguez",
-		date: "Dec 8, 2024",
-		category: "Lifestyle",
-		readTime: "7 min read",
-		imageUrl: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
-	},
-	{
-		id: "5",
-		title: "Machine Learning for Beginners: A Comprehensive Guide",
-		excerpt: "Start your journey into machine learning with this beginner-friendly guide that covers the fundamentals and practical applications.",
-		author: "Dr. Lisa Wang",
-		date: "Dec 5, 2024",
-		category: "Technology",
-		readTime: "8 min read",
-		imageUrl: "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
-	},
-	{
-		id: "6",
-		title: "The Psychology of Habit Formation",
-		excerpt: "Understanding how habits work and how to build positive ones that stick. Science-backed strategies for lasting behavior change.",
-		author: "Dr. James Wilson",
-		date: "Dec 3, 2024",
-		category: "Health",
-		readTime: "6 min read",
-		imageUrl: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
-	},
-	{
-		id: "7",
-		title: "Remote Team Management: Best Practices",
-		excerpt: "Effective strategies for managing remote teams, building culture, and maintaining productivity in a distributed work environment.",
-		author: "Maria Garcia",
-		date: "Nov 30, 2024",
-		category: "Productivity",
-		readTime: "5 min read",
-		imageUrl: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
-	},
-	{
-		id: "8",
-		title: "The Rise of Web3: What You Need to Know",
-		excerpt: "An overview of Web3 technology, blockchain applications, and how they're reshaping the internet and digital ownership.",
-		author: "David Kim",
-		date: "Nov 28, 2024",
-		category: "Technology",
-		readTime: "7 min read",
-		imageUrl: "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
-	},
-	{
-		id: "9",
-		title: "Mental Health in the Digital Age",
-		excerpt: "How technology affects our mental well-being and strategies for maintaining a healthy relationship with digital devices.",
-		author: "Dr. Sarah Thompson",
-		date: "Nov 25, 2024",
-		category: "Health",
-		readTime: "6 min read",
-		imageUrl: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
-	}
-];
+import { mockBlogPosts, type BlogPost } from "../content/mockBlogPosts";
 
 export const Blog = () => {
 	const { t } = useTranslation();
@@ -120,14 +27,14 @@ export const Blog = () => {
 
 	// Filter and sort blog posts
 	const filteredPosts = mockBlogPosts
-		.filter((post) => {
+		.filter((post: BlogPost) => {
 			const matchesSearch = post.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
 				post.excerpt.toLowerCase().includes(searchTerm.toLowerCase()) ||
 				post.author.toLowerCase().includes(searchTerm.toLowerCase());
 			const matchesCategory = selectedCategory === t("blog.categoryAll") || post.category === selectedCategory;
 			return matchesSearch && matchesCategory;
 		})
-		.sort((a, b) => {
+		.sort((a: BlogPost, b: BlogPost) => {
 			if (sortBy === "latest") {
 				return new Date(b.date).getTime() - new Date(a.date).getTime();
 			} else if (sortBy === "oldest") {
@@ -213,7 +120,7 @@ export const Blog = () => {
 				{/* Blog Posts Grid */}
 				{filteredPosts.length > 0 ? (
 					<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-						{filteredPosts.map((post) => (
+						{filteredPosts.map((post: BlogPost) => (
 							<BlogCard key={post.id} post={post} />
 						))}
 					</div>

@@ -1,4 +1,5 @@
 import { CalendarIcon, UserIcon, ArrowRightIcon } from "@heroicons/react/24/outline";
+import { Link } from "@tanstack/react-router";
 
 interface BlogPost {
 	id: string;
@@ -17,6 +18,7 @@ interface BlogCardProps {
 
 export const BlogCard = ({ post }: BlogCardProps) => {
 	return (
+		<Link params={{blogId: post.id}} to={`/blog-detail/$blogId`}>
 		<article className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300">
 			{post.imageUrl && (
 				<div className="aspect-video overflow-hidden">
@@ -56,5 +58,6 @@ export const BlogCard = ({ post }: BlogCardProps) => {
 				</div>
 			</div>
 		</article>
+		</Link>
 	);
 }; 
